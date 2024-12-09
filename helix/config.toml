@@ -1,40 +1,38 @@
+# A lot of this comes from https://theari.dev/blog/enhanced-helix-config/
 theme = "quinn-theme"
-
-[editor]
-# Show currently open buffers, only when more than one exists.
-bufferline = "multiple"
-# Highlight all lines with a cursor
-cursorline = true
-# Use relative line numbers
-line-number = "relative"
-# Show a ruler at column 120
-rulers = [120]
-# Force the theme to show colors
-true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
 select = "underline"
+
+[editor]
+mouse = false
+color-modes = true
+cursorline = true
+bufferline = "always"
+popup-border = "popup"
+rulers = [80]
 
 [editor.indent-guides]
 render = true
 
 [editor.lsp]
-# Disable automatically popups of signature parameter help
-auto-signature-help = false
-# Show LSP messages in the status line
 display-messages = true
+auto-signature-help = false
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
+left = ["mode", "spinner", "spacer", "read-only-indicator", "version-control"]
+center = ["file-name", "file-modification-indicator"]
+right = ["diagnostics", "register", "file-type", "file-encoding", "position-percentage"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [keys.normal]
-"A-," = "goto_previous_buffer"
-"A-." = "goto_next_buffer"
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
 
 [keys.select]
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
+
